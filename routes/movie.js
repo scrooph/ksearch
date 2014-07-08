@@ -16,12 +16,12 @@ exports.movieAdd = function(req, res) {
 };
 exports.doMovieAdd = function(req, res) {
 	
-	if(req.body.mName==null){
+	if(req.body.mName==null||req.body.mName==""){
 		res.send({'success':false});
 	}else{
-		Movie.create({ name: 'jelly bean' }, { name: req.body.mName }, function (err, jellybean, snickers) {
+		Movie.create({ name: req.body.mName }, function (err, snickers) {
 		  if (err)
-			console.log(jellybean);
+			console.log(snickers);
 		});
 	}
 	// executing a query explicitly
