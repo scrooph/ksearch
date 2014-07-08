@@ -21,7 +21,7 @@ exports.doMovieAdd = function(req, res) {
 	});
 	
 	// executing a query explicitly
-	var query = Movie.find({ name: /john/i }, 'snickers', { skip: 1 })
+	var query = Movie.find({ name: /snickers/i }, null, { skip: 1 })
 	query.exec(function (err, docs) {
 		if(err){
 			console.log("something wrong");
