@@ -15,11 +15,9 @@ exports.movieAdd = function(req, res) {
 	}
 };
 exports.doMovieAdd = function(req, res) {
-	var movie = new Movie();
-	movie.name = "bian4";
-	movie.save(function (err, movie, numberAffected) {
-		//if (err) ..
-		console.log("wrong");
+	Movie.create({ name: 'jelly bean' }, { name: 'snickers' }, function (err, jellybean, snickers) {
+	  if (err)
+		console.log(jellybean);
 	});
 	res.send({'success':true});
 };
