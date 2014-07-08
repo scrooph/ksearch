@@ -15,7 +15,7 @@ exports.movieAdd = function(req, res) {
 	}
 };
 exports.doMovieAdd = function(req, res) {
-	Movie.create({ name: 'jelly bean' }, { name: req.params.mName }, function (err, jellybean, snickers) {
+	Movie.create({ name: 'jelly bean' }, { name: req.body.mName }, function (err, jellybean, snickers) {
 	  if (err)
 		console.log(jellybean);
 	});
