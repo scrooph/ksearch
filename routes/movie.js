@@ -18,8 +18,6 @@ exports.doMovieAdd = function(req, res) {
 	Movie.create({ name: 'jelly bean' }, { name: 'snickers' }, function (err, jellybean, snickers) {
 	  if (err)
 		console.log(jellybean);
-		
-		console.log("something wrong");
 	});
 	res.send({'success':true});
 };
