@@ -15,10 +15,15 @@ exports.movieAdd = function(req, res) {
 	}
 };
 exports.doMovieAdd = function(req, res) {
-	Movie.create({ name: 'jelly bean' }, { name: req.body.mName }, function (err, jellybean, snickers) {
-	  if (err)
-		console.log(jellybean);
-	});
+	
+	if(empty(req.body.mName)){
+		res.send({'success':false});
+		return;
+	}else
+		Movie.create({ name: 'jelly bean' }, { name: req.body.mName }, function (err, jellybean, snickers) {
+		  if (err)
+			console.log(jellybean);
+		});
 	
 	// executing a query explicitly
 	var query = Movie.find({ name: /snickers/i }, null, { skip: 1 })
