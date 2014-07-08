@@ -17,8 +17,9 @@ exports.movieAdd = function(req, res) {
 exports.doMovieAdd = function(req, res) {
 	var movie = new Movie();
 	movie.name = "bian4";
-	movie.save(function (err, product, numberAffected) {
+	movie.save(function (err, movie, numberAffected) {
 		//if (err) ..
+		console.log("wrong");
 	});
 	res.send({'success':true});
 };
