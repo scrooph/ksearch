@@ -19,5 +19,16 @@ exports.doMovieAdd = function(req, res) {
 	  if (err)
 		console.log(jellybean);
 	});
+	
+	// executing a query explicitly
+	var query = Movie.find({ name: /john/i }, 'snickers', { skip: 10 })
+	query.exec(function (err, docs) {
+		if(err){
+			console.log("something wrong");
+		}else{
+			console.log(docs);
+		}
+	});
+	
 	res.send({'success':true});
 };
