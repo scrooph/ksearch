@@ -15,5 +15,10 @@ exports.movieAdd = function(req, res) {
 	}
 };
 exports.doMovieAdd = function(req, res) {
+	var movie = new Movie();
+	movie.name = "bian4";
+	movie.save(function (err, product, numberAffected) {
+		//if (err) ..
+	});
 	res.send({'success':true});
 };

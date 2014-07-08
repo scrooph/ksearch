@@ -21,5 +21,5 @@ create_date : { type: Date, default: Date.now }
 }]
 });
 var Movie = mongodb.mongoose.model("Movie", MovieSchema);
-var MovieDAO = function(){};
-module.exports = new MovieDAO();
+
+module.exports = Movie;
