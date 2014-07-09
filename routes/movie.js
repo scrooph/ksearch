@@ -4,12 +4,11 @@ exports.movieAdd = function(req, res) {
 		// executing a query explicitly
 		var query = Movie.find({ name: '/'+req.params.name+'/i' },null, { skip: req.params.page });
 		var supplies;
-		query.exec(function (err, docs) {
+		query.exec(function (err, supplies) {
 			if(err){
 				console.log("something wrong");
 			}else{
-				console.log(docs);
-				supplies = docs;
+				console.log(supplies);
 			}
 		});
 		return res.render('main/movie/movie', {
@@ -23,12 +22,11 @@ exports.movieAdd = function(req, res) {
 		//var query = Movie.find({ name: /snickers/i }, null, { skip: 1 });
 		var query = Movie.find(null, null, { skip: req.params.page });
 		var supplies;
-		query.exec(function (err, docs) {
+		query.exec(function (err, supplies) {
 			if(err){
 				console.log("something wrong");
 			}else{
-				console.log(docs);
-				supplies = docs;
+				console.log(supplies);
 			}
 		});
 		return res.render('main/movie/movie',{
