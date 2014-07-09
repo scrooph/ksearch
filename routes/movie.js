@@ -7,11 +7,24 @@ exports.movieAdd = function(req, res) {
 		movie:req.params.name
 		});
 	} else {
+		// executing a query explicitly
+		//var query = Movie.find({ name: /snickers/i }, null, { skip: 1 });
+		var query = Movie.find(null, null, { skip: req.params.page });
+		var supplies;
+		query.exec(function (err, docs) {
+			if(err){
+				console.log("something wrong");
+			}else{
+				console.log(docs);
+				supplies = docs;
+			}
+		});
 		return res.render('main/movie/movie',{
 		title:'新增加|电影|管理|moive.me',
 		label:'新增加电影',
-		movie:false
-	});
+		movie:false,
+		supplies:supplies
+		});
 	}
 };
 exports.doMovieAdd = function(req, res) {
@@ -24,16 +37,6 @@ exports.doMovieAdd = function(req, res) {
 			console.log(snickers);
 		});
 	}
-	// executing a query explicitly
-	//var query = Movie.find({ name: /snickers/i }, null, { skip: 1 });
-	var query = Movie.find(null, null, { skip: 1 })
-	query.exec(function (err, docs) {
-		if(err){
-			console.log("something wrong");
-		}else{
-			console.log(docs);
-		}
-	});
 	
 	res.send({'success':true});
 };
