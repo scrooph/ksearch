@@ -1,26 +1,42 @@
 <% include ../header.html %>
 <div class="container-fluid">
-<div class="row-fluid">
-<div class="span4">
-<form action="/movie/add" method="post">
-<fieldset>
-<legend><%=label%></legend>
-<textarea id="c_editor" name="mName" class="span12" rows="10"></textarea>
-<button id="c_save" type="submit" class="btn btn-primary">保存</button>
-</fieldset>
-<form>
-</div>
-<div class="span4">
-<ul>
-	 <% for(var i=0; i<supplies.length; i++) { %>
-        <li>
-            <a href='supplies/<%= supplies[i] %>'>
-                <%= supplies[i] %>
-            </a>
-        </li>
-    <% } %>
-</ul>
-</div>
-</div>
+	<div class="row">
+		<div class="col-md-12" style="margin-bottom:20px;">
+			<form action="/movie/add" method="post">
+				<div class="col-lg-4">
+					<div class="input-group">
+					  <input type="text" class="form-control" id="c_editor" name="mName">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="submit">Go!</button>
+					  </span>
+					</div><!-- /input-group -->
+				</div><!-- /.col-lg-6 -->
+			<form>
+		</div>
+		<div class="col-md-12">
+			<div class="col-lg-10">
+				<ul class="list-group">
+					 <% for(var i=0; i<supplies.length; i++) { %>
+						<li class="list-group-item">
+							<a href='<%= supplies[i].name %>'>
+								<%= supplies[i].name %>
+							</a>
+						</li>
+					<% } %>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul class="list-group">
+					 <% for(var i=0; i<supplies.length; i++) { %>
+						<li class="list-group-item">
+							<a href='<%= supplies[i].name %>'>
+								<%= supplies[i].name %>
+							</a>
+						</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 <% include ../footer.html %>
