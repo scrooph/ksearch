@@ -14,7 +14,8 @@ exports.movieAdd = function(req, res) {
 		// executing a query explicitly
 		//var query = Movie.find({ name: /snickers/i }, null, { skip: 1 });
 		var query = Movie.find(null, null, { skip: req.params.page });
-		var supplies = query.limit(10);
+		var supplies = query.limit(10).exec();
+		console.log(supplies);
 		return res.render('main/movie/movie',{
 		title:'新增加|电影|管理|moive.me',
 		label:'新增加电影',
