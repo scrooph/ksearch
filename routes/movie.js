@@ -1,10 +1,22 @@
 var Movie = require('./../models/Movie.js');
 exports.movieAdd = function(req, res) {
-	if(req.params.name){//update
+	if(req.params.name){
+		// executing a query explicitly
+		var query = Movie.find({ name: '/'+req.params.name+'/i' }, null);
+		var supplies;
+		query.exec(function (err, docs) {
+			if(err){
+				console.log("something wrong");
+			}else{
+				console.log(docs);
+				supplies = docs;
+			}
+		});
 		return res.render('main/movie/movie', {
 		title:req.params.name+'|电影|管理|moive.me',
 		label:'编辑电影:'+req.params.name,
-		movie:req.params.name
+		movie:req.params.name,
+		supplies:supplies
 		});
 	} else {
 		// executing a query explicitly
