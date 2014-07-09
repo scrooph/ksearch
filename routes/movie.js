@@ -2,7 +2,7 @@ var Movie = require('./../models/Movie.js');
 exports.movieAdd = function(req, res) {
 	if(req.params.name){
 		// executing a query explicitly
-		var query = Movie.find({ name: '/'+req.params.name+'/i' }, null);
+		var query = Movie.find({ name: '/'+req.params.name+'/i' },null, { skip: req.params.page });
 		var supplies;
 		query.exec(function (err, docs) {
 			if(err){
